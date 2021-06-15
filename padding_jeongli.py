@@ -48,9 +48,9 @@ class ReflectionPadding2D(Layer):
         self.input_spec = [InputSpec(ndim=4)]
         super(ReflectionPadding2D, self).__init__(**kwargs)
 
-    def compute_output_shape(self, s):
-        """ If you are using "channels_last" configuration"""
-        return (s[0], s[1] + 2 * self.padding[0], s[2] + 2 * self.padding[1], s[3])
+    # def compute_output_shape(self, s):
+    #     """ If you are using "channels_last" configuration"""
+    #     return (s[0], s[1] + 2 * self.padding[0], s[2] + 2 * self.padding[1], s[3])
 
     def call(self, x, mask=None):
         (t_pad ,b_pad),(l_pad,r_pad) = self.padding
@@ -58,4 +58,5 @@ class ReflectionPadding2D(Layer):
 
 
 y1 = ReflectionPadding2D(padding=((0,1),(0,1)))(t)
+# (padding=((top_pad, bottom_pad), (left_pad, right_pad)))
 print(y1)
