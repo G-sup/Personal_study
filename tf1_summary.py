@@ -67,3 +67,5 @@ with tf.Session() as sess:
         acc = accuracy_score(y_acc_test, predict)
         print(step,"accuracy_score : ", acc)
 
+
+
